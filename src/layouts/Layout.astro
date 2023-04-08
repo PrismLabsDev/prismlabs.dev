@@ -1,6 +1,15 @@
 ---
-import { Icon } from 'astro-icon'
+import '@fontsource/lato';
+import '@fontsource/montserrat';
+import '@fontsource/open-sans';
+import '@fontsource/poppins';
+import '@fontsource/redacted-script';
+import '@fontsource/righteous';
+import '@fontsource/roboto';
+
 import '../styles/global.scss';
+
+import { Icon } from 'astro-icon'
 
 export interface Props {
 	title: string;
@@ -21,9 +30,9 @@ const { title } = Astro.props;
 
 	<body class="min-h-screen font-lato text-white bg-black">
 
-    <header class="flex flex-row p-3 h-16 sticky top-0 backdrop-blur">
-      <div class="basis-1/4 flex flex-row justify-start items-center"><a href="/">Prism Labs</a></div>
-      <div class="basis-2/4 flex flex-row justify-center items-center">
+    <header class="flex flex-row py-3 px-10 h-16 sticky top-0 backdrop-blur">
+      <div class="basis-1/4 flex flex-row justify-start items-center font-righteous text-4xl"><a href="/">Prism Labs</a></div>
+      <div class="basis-2/4 flex flex-row justify-center items-center text-lg">
         <nav class="flex flex-row space-x-4">
           <a href="/">Home</a>
           <a href="/#about">About</a>
@@ -31,7 +40,7 @@ const { title } = Astro.props;
         </nav>
       </div>
       <div class="basis-1/4 flex flex-row justify-end items-center">
-        <a target="_blank" href="https://github.com/PrismLabsDev"><Icon class="w-10" name="mdi:github" /></a>
+        <a target="_blank" href="https://github.com/PrismLabsDev"><Icon class="w-12" name="mdi:github" /></a>
       </div>
     </header>
 

@@ -6,7 +6,7 @@ export async function getStaticPaths() {
 
   return projects.map(project => ({
     params: { 
-      slug: project.frontmatter.slug 
+      slug: project.frontmatter.slug
     },
     props: {
       project
@@ -19,20 +19,21 @@ const { Content, frontmatter } = Astro.props.project;
 
 <Layout title={`${frontmatter.title} - ${frontmatter.description}`}>
 	<>
-    <article>
-      <ul>
-        {frontmatter.repos.map((repo: any) => <li><a target="_blank" href={repo}>{repo}</a></li>)}
-      </ul>
-      <ul>
-        {frontmatter.stack.map((technology: any) => <li>{technology}</li>)}
-      </ul>
-      <Content/>
-    </article>
+    <ul>
+      {frontmatter.repos.map((repo: any) => <li><a target="_blank" href={repo}>{repo}</a></li>)}
+    </ul>
+    <ul>
+      {frontmatter.stack.map((technology: any) => <li>{technology}</li>)}
+    </ul>
+
+    <div class="flex justify-center">
+      <article class="markdown markdown-invert max-w-none md:markdown-lg lg:markdown-xl">
+        <Content/>
+      </article>
+    </div>
 	</>
 </Layout>
 
 <style lang="scss">
-  h1 {
-    font-size: 50px;
-  }
+
 </style>

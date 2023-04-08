@@ -8,10 +8,15 @@ module.exports = {
 				montserrat: ['Montserrat', 'sans-serif'],
 				opensans: ['Open Sans', 'sans-serif'],
 				poppins: ['Poppins', 'sans-serif'],
+				redactedscript: ['Redacted Script', 'cursive'],
 				righteous: ['Righteous', 'cursive'],
 				roboto: ['Roboto', 'sans-serif'],
 			},
 		},
 	},
-	plugins: [],
+	plugins: [
+		require('@tailwindcss/typography')({
+			className: 'markdown',
+		}),
+	],
 };
