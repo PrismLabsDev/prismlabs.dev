@@ -4,12 +4,35 @@ const {} = Astro.props;
 ---
 
 <script defer lang="js">
+  function getScrollbarWidth() {
+
+    // Creating invisible container
+    const outer = document.createElement('div');
+    outer.style.visibility = 'hidden';
+    outer.style.overflow = 'scroll'; // forcing scrollbar to appear
+    outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
+    document.body.appendChild(outer);
+
+    // Creating inner element and placing it in the container
+    const inner = document.createElement('div');
+    outer.appendChild(inner);
+
+    // Calculating difference between container's full width and the child width
+    const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
+
+    // Removing temporary elements from the DOM
+    outer.parentNode.removeChild(outer);
+
+    return scrollbarWidth;
+
+  }
+
   let gameBoard = null;
   let frames = 0;
-  let canvasWidth = window.innerWidth;
+  let canvasWidth = window.innerWidth - getScrollbarWidth();
   let canvasHeight = window.innerHeight - 64;
   let blockSize = 5; // Must be divisible by the canvas height and width
-  let speed = 0.1 * 60; // Draw runs at 60 frames / second
+  let speed = 0.1 * 30; // Draw runs at 60 frames / second
   let bgColor = 0;
   let squareColor = 30;
   let randomFacotr = 0.2;
