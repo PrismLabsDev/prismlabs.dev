@@ -2,28 +2,25 @@
 import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
-  const projects = await Astro.glob('../../content/projects/*.md');
+  const articles = await Astro.glob('../../content/articles/*.md');
 
-  return projects.map(project => ({
+  return articles.map(article => ({
     params: { 
-      slug: project.frontmatter.slug
+      slug: article.frontmatter.slug
     },
     props: {
-      project
+      article
     },
   }))
 }
 
-const { Content, frontmatter } = Astro.props.project;
+const { Content, frontmatter } = Astro.props.article;
 ---
 
 <Layout title={`${frontmatter.title}`}>
 	<>
     <ul>
-      {frontmatter.repos.map((repo: any) => <li><a target="_blank" href={repo}>{repo}</a></li>)}
-    </ul>
-    <ul>
-      {frontmatter.stack.map((technology: any) => <li>{technology}</li>)}
+      {frontmatter.topics.map((topic: any) => <li>{topic}</li>)}
     </ul>
 
     <div class="flex justify-center">

@@ -10,6 +10,8 @@ stack:
   - Laravel
   - React
   - PostgreSQL
+created_at: 1680931090656
+updated_at: 1680931090656
 ---
 
 # Cms Base!

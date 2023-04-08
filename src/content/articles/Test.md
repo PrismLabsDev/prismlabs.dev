@@ -2,11 +2,7 @@
 slug: 'test'
 title: 'Test'
 description: 'Test Render.'
-repos:
-  - 'https://github.com/PrismLabsDev/cmsbase-api-laravel'
-  - 'https://github.com/PrismLabsDev/cmsbase-spa-admin'
-  - 'https://github.com/PrismLabsDev/cmsbase-spa-tenant'
-stack:
+topics:
   - Laravel
   - React
   - PostgreSQL
