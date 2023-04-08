@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply py-1 px-3 border-solid border-white border-4 rounded-full w-fit hover:bg-white hover:text-black;
+  }
+}

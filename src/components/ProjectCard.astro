@@ -1,0 +1,25 @@
+---
+export interface Props {
+	projectFrontmatter: any;
+}
+
+const { projectFrontmatter } = Astro.props;
+---
+
+<div class="flex flex-row space-x-5">
+  <div class="basis-1/4 self-center">
+    <img class="object-contain" src="https://via.placeholder.com/600/" alt="Test Image">
+  </div>
+  <div class="basis-3/4 flex flex-col text-start self-center">
+    <h2 class="text-3xl font-bold">{projectFrontmatter.title}</h2>
+    <ul class="flex mt-3 space-x-3">
+      {projectFrontmatter.stack.map((technology: any) => <li>#{technology}</li>)}
+    </ul>
+    <p class="mt-5">{projectFrontmatter.description}</p>
+    <a class="btn-primary mt-5" href={`/project/${projectFrontmatter.slug}`}>See Project</a>
+  </div>
+</div>
+
+<style lang="scss">
+
+</style>

@@ -1,8 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
-// import Card from '../components/Card.astro';
+
 import Life from '../components/Life.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
 import { Icon } from 'astro-icon'
+
 const projects = await Astro.glob('../content/projects/*.md');
 const articles = await Astro.glob('../content/articles/*.md');
 ---
@@ -23,32 +26,28 @@ const articles = await Astro.glob('../content/articles/*.md');
     </div>
 
     <!-- About -->
-    <div id="about" class="flex min-h-[calc(100vh-64px)] pt-16">
-      <h1>About</h1>
+    <div id="about" class="flex flex-col justify-center text-center content-center min-h-[calc(100vh-64px)] pt-16 max-w-3xl mx-auto">
+      <h1 class="font-righteous text-5xl font-bold">Who are we?</h1>
+      <p class="mt-10 text-lg">To put it simply, we are a group of like minded developers that are dedicated to our craft!</p>
+      <p class="mt-8 text-lg">We are curious individuals that have a drive to solve unique problems. Prism Labs was originally created with the idea to bring passionate developers together, explore new and interesting ideas and get involved with amazing projects! We now showcase several amazing projects that utalize a wide range of technologies to solve interesting and unique probles.</p>
     </div>
 
     <!-- Projects -->
-    <div id="projects" class="flex min-h-[calc(100vh-64px)] pt-16">
-      <h1>Projects</h1>
-      <br/>
-      <ul>
-        {projects.map(project => <li><a href={"/project/" + project.frontmatter.slug}>{project.frontmatter.title}</a></li>)}
+    <div id="projects" class="flex flex-col text-center min-h-[calc(100vh-64px)] pt-16">
+      <h1 class="font-righteous text-5xl font-bold">Projects</h1>
+      <ul class="mt-20 max-w-4xl mx-auto">
+        {projects.map(project => <li class="my-10"><ProjectCard projectFrontmatter={project.frontmatter} /></li>)}
       </ul>
     </div>
 
-      <!-- Articles -->
-      <div id="articles" class="flex min-h-[calc(100vh-64px)] pt-16">
-        <h1>Articles</h1>
-        <br/>
-        <ul>
-          {articles.map(article => <li><a href={"/article/" + article.frontmatter.slug}>{article.frontmatter.title}</a></li>)}
-        </ul>
-      </div>
-
-    <!-- <Card href="https://dev.to/devteam/make-a-difference-on-dev-as-a-moderator-opl" title="Test Card">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere lacus volutpat lorem ullamcorper, lobortis semper tortor imperdiet.
-    </Card> -->
-    
+    <!-- Articles -->
+    <!-- <div id="articles" class="flex min-h-[calc(100vh-64px)] pt-16">
+      <h1>Articles</h1>
+      <br/>
+      <ul>
+        {articles.map(article => <li><a href={"/article/" + article.frontmatter.slug}>{article.frontmatter.title}</a></li>)}
+      </ul>
+    </div> -->
 	</>
 </Layout>
 
