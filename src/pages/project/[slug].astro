@@ -18,20 +18,26 @@ const { Content, frontmatter } = Astro.props.project;
 ---
 
 <Layout title={`${frontmatter.title}`}>
-	<>
-    <ul>
-      {frontmatter.repos.map((repo: any) => <li><a target="_blank" href={repo}>{repo}</a></li>)}
-    </ul>
-    <ul>
-      {frontmatter.stack.map((technology: any) => <li>{technology}</li>)}
-    </ul>
+  <>
+    <div class="px-10 my-24 max-w-5xl mx-auto">
+      <div>
+        <h1 class="lg:text-6xl text-5xl font-black">{frontmatter.title}</h1>
+        <!-- <p class="mt-5">Published on {new Date(frontmatter.created_at).toDateString()}</p> -->
+        <ul class="flex mt-5 space-x-3">
+          {frontmatter.stack.map((technology: any) => <li>#{technology}</li>)}
+        </ul>
+        <ul class="flex flex-col mt-5">
+          {frontmatter.repos.map((repo: any) => <li><a target="_blank" href={repo}>{repo}</a></li>)}
+        </ul>
+      </div>
 
-    <div class="flex justify-center">
-      <article class="markdown markdown-invert max-w-none md:markdown-lg lg:markdown-xl">
-        <Content/>
-      </article>
+      <div class="flex justify-center mt-10">
+        <article class="markdown markdown-invert max-w-none md:markdown-lg lg:markdown-xl font-lato">
+          <Content/>
+        </article>
+      </div>
     </div>
-	</>
+  </>
 </Layout>
 
 <style lang="scss">

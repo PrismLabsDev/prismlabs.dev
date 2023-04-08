@@ -19,14 +19,20 @@ const { Content, frontmatter } = Astro.props.article;
 
 <Layout title={`${frontmatter.title}`}>
 	<>
-    <ul>
-      {frontmatter.topics.map((topic: any) => <li>{topic}</li>)}
-    </ul>
+    <div class="px-10 my-24 max-w-5xl mx-auto">
+      <div>
+        <h1 class="lg:text-6xl text-5xl font-black">{frontmatter.title}</h1>
+        <!-- <p class="mt-5">Published on {new Date(frontmatter.created_at).toDateString()}</p> -->
+        <ul class="flex mt-5 space-x-3">
+          {frontmatter.topics.map((topic: any) => <li>#{topic}</li>)}
+        </ul>
+      </div>
 
-    <div class="flex justify-center">
-      <article class="markdown markdown-invert max-w-none md:markdown-lg lg:markdown-xl">
-        <Content/>
-      </article>
+      <div class="flex justify-center mt-10">
+        <article class="markdown markdown-invert max-w-none md:markdown-lg lg:markdown-xl font-lato">
+          <Content/>
+        </article>
+      </div>
     </div>
 	</>
 </Layout>
