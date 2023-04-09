@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Life from '../components/Life.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon';
 
 const projects = await Astro.glob('../content/projects/*.md');
 const articles = await Astro.glob('../content/articles/*.md');
@@ -33,9 +33,9 @@ const articles = await Astro.glob('../content/articles/*.md');
     </div>
 
     <!-- Projects -->
-    <div id="projects" class="flex flex-col text-center min-h-[calc(100vh-64px)] pt-16">
+    <div id="projects" class="flex flex-col mx-auto text-center min-h-[calc(100vh-64px)] max-w-5xl pt-16">
       <h1 class="font-righteous text-5xl font-bold">Projects</h1>
-      <ul class="mt-20 max-w-4xl mx-auto">
+      <ul class="mt-10">
         {projects.map(project => <li class="my-10"><ProjectCard projectFrontmatter={project.frontmatter} /></li>)}
       </ul>
     </div>

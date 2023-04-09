@@ -1,22 +1,23 @@
 ---
+import { Icon } from 'astro-icon';
+
 export interface Props {
 	projectFrontmatter: any;
 }
-
 const { projectFrontmatter } = Astro.props;
 ---
 
-<div class="flex flex-row space-x-5">
-  <div class="basis-1/4 self-center">
-    <img class="object-contain" src="https://via.placeholder.com/600/" alt="Test Image">
+<div class="flex flex-col md:flex-row md:space-x-5">
+  <div class="basis-2/5 flex p-5">
+    <img class="object-cover w-full aspect-video rounded" src="https://via.placeholder.com/400/" alt="Test Image">
   </div>
-  <div class="basis-3/4 flex flex-col text-start self-center">
+  <div class="basis-3/5 flex flex-col text-start self-center px-5">
     <h2 class="text-3xl font-bold">{projectFrontmatter.title}</h2>
     <ul class="flex mt-3 space-x-3">
       {projectFrontmatter.stack.map((technology: any) => <li>#{technology}</li>)}
     </ul>
-    <p class="mt-5">{projectFrontmatter.description}</p>
-    <a class="btn-primary mt-5" href={`/project/${projectFrontmatter.slug}`}>See Project</a>
+    <p class="mt-5 text-lg">{projectFrontmatter.description}</p>
+    <a class="btn-primary mt-5 flex content-center" href={`/project/${projectFrontmatter.slug}`}>Go To Project<Icon name="mdi:open-in-new" class="w-5 inline ml-2" /></a>
   </div>
 </div>
 

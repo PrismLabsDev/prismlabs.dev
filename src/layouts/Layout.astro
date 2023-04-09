@@ -53,7 +53,7 @@ const { title } = Astro.props;
             <a href="/">Home</a>
             <a href="/#about">About</a>
             <a href="/#projects">Projects</a>
-            <a href="/#articles">Articles</a>
+            <!-- <a href="/#articles">Articles</a> -->
           </nav>
         </div>
         <div class="basis-1/4 flex flex-row justify-end items-center">
@@ -69,11 +69,14 @@ const { title } = Astro.props;
       </div>
 
       <div id="mobile_menu" class="hidden sticky z-0 w-full justify-center items-center text-lg">
-        <nav class="flex flex-col text-center space-y-4 py-4">
+        <nav class="flex flex-col text-center space-y-4 py-4 w-full">
           <a href="/" onclick="toggleMobileMenu()">Home</a>
           <a href="/#about" onclick="toggleMobileMenu()">About</a>
           <a href="/#projects" onclick="toggleMobileMenu()">Projects</a>
-          <a href="/#articles" onclick="toggleMobileMenu()">Articles</a>
+          <!-- <a href="/#articles" onclick="toggleMobileMenu()">Articles</a> -->
+          <div class="flex flex-row justify-center">
+            <a target="_blank" href="https://github.com/PrismLabsDev"><Icon class="w-10" name="mdi:github" /></a>
+          </div>
         </nav>
       </div>
     </header>
