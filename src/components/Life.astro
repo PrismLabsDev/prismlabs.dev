@@ -4,6 +4,12 @@ const {} = Astro.props;
 ---
 
 <script defer lang="js">
+  console.log("==============================");
+  console.log("Game of Life Background:");
+  console.log("Click anywhere to change the state of an individual cell.");
+  console.log("Press 'r' to randomize.");
+  console.log("==============================");
+
   function getScrollbarWidth() {
 
     // Creating invisible container
@@ -26,6 +32,12 @@ const {} = Astro.props;
     return scrollbarWidth;
 
   }
+
+  document.addEventListener("keydown", function (event) {
+    if(event.key == 'r'){
+      gameBoard.randomize();
+    }
+  });
 
   let gameBoard = null;
   let frames = 0;
